@@ -26,7 +26,7 @@
 
     * Estimate of time needed to complete: __6 hours___
 
-    * Start time: _12:05pm_break at 12:19pm___
+    * Start time: _12:05pm-12:19pm__1:55-4:15__5:33-
 
     * Finish time: _____
 

@@ -13,25 +13,42 @@ export default class HornedBeast extends Component {
     }
   }
 
-  updateLikes(){
+  likeBeast(){
     this.setState((prev) =>({
       likes: prev.likes + 1
     }))
   }
 
+  unlikeBeast(){
+    this.setState((prev)=>({
+      likes: prev.likes - 1
+    }))
+  }
+
+  popEffect(e){
+    e.currentTarget.classList.toggle('card-hover');
+  }
+
   render() {
     return (
-        <Card>
+        <div className='individual-card-container'>
+          <Card>
+        <Card.Header><div><i class='fa-solid fa-heart'></i> {this.state.likes} Favorites</div></Card.Header>
         <Card.Img className='card-img' variant="top" src={this.props.image_url} />
         <Card.Body>
           <Card.Title>{this.props.title}</Card.Title>
           <Card.Text>
             {this.props.description}
           </Card.Text>
-          <Button onClick={()=>this.updateLikes()} variant="primary">Like</Button>
         </Card.Body>
-        <Card.Footer><div>{this.state.likes} <i class="fa-solid fa-heart"></i> Favorites</div></Card.Footer>
+        <Card.Footer>
+          <div className='button-container'>
+          <Button onClick={()=>this.likeBeast()} variant="primary"><i class="fa-solid fa-thumbs-up"></i></Button>
+          <Button onClick={()=>this.unlikeBeast()} variant="primary"><i class="fa-solid fa-thumbs-down"></i></Button>
+          </div>
+        </Card.Footer>
       </Card>
+        </div>
     )
   }
 }
